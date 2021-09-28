@@ -22,7 +22,7 @@ Link to [Assignment](https://github.com/MartinSomsak00/Digital-electronics-2/blo
 
 ### Morse code
 
-1. Listing of C code with syntax highlighting which repeats one "dot" and one "comma" on a LED:
+### 1. Listing of C code with syntax highlighting which repeats one "dot" and one "comma" on a LED:
 
 ```c
 int main(void)
@@ -57,5 +57,5 @@ int main(void)
 }
 ```
 
-### Scheme of Morse code application, i.e. connection of AVR device, LED, resistor, and supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values!
+### 2. Scheme of Morse code application, i.e. connection of AVR device, LED, resistor, and supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values!
 ![scheme](pictures/1.PNG) 
