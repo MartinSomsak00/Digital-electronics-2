@@ -22,11 +22,10 @@
  */
 #define LED_GREEN   PB5 // AVR pin where green LED is connected
 
-#define DOT_DELAY   200 // Delay in milliseconds, PARIS
-#define DASH_DELAY  3*DOT_DELAY
-#define INTER_DELAY 1*DOT_DELAY
-#define CHAR_DELAY  DASH_DELAY-INTER_DELAY
-#define WORD_DELAY  7*DOT_DELAY-INTER_DELAY
+#define DOT_DELAY   200 // Delay in milliseconds
+#define DASH_DELAY  600
+#define WORD_DELAY  1400
+#define INTER_DELAY 200
 #ifndef F_CPU           // Preprocessor directive allows for conditional
                         // compilation. The #ifndef means "if not defined".
 # define F_CPU 16000000 // CPU frequency in Hz required for delay
@@ -44,26 +43,12 @@
  * Function: dot function for displaying dot in Morse code on LED
  * Returns:  none
  **********************************************************************/
-void dot()
-{
-    // Invert LED in Data Register
-    // PORTB = PORTB xor 0010 0000
-    PORTB = PORTB ^ (1<<LED_GREEN);
-    _delay_ms(DOT_DELAY);
-    PORTB = PORTB ^ (1<<LED_GREEN);
-    _delay_ms(INTER_DELAY);
-}
+
 /**********************************************************************
  * Function: dash function for displaying dash in Morse code on LED
  * Returns:  none
  **********************************************************************/
-void dash()
-{
-    PORTB = PORTB ^ (1<<LED_GREEN);
-    _delay_ms(DASH_DELAY);
-    PORTB = PORTB ^ (1<<LED_GREEN);
-    _delay_ms(INTER_DELAY);
-}
+
 /**********************************************************************
  * Function: Main function where the program execution begins
  * Purpose:  Display on LED in Morse code "DE2"
@@ -82,18 +67,17 @@ int main(void)
     // Infinite loop
     while (1)
     {
-        // "DE2" in Morse code "-.. . ..---"
-        dash();
-        dot();
-        dot();
-        _delay_ms(CHAR_DELAY);
-        dot();
-        _delay_ms(CHAR_DELAY);
-        dot();
-        dot();
-        dash();
-        dash();
-        dash();
+       
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(DOT_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(INTER_DELAY);
+        
+		 PORTB = PORTB ^ (1<<LED_GREEN);
+		 _delay_ms(DASH_DELAY);
+		 PORTB = PORTB ^ (1<<LED_GREEN);
+		 _delay_ms(INTER_DELAY);
+
         _delay_ms(WORD_DELAY);
     }
 
