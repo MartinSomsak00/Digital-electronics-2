@@ -1,4 +1,3 @@
-
 /***********************************************************************
  * 
  * Blink a LED and use function from the delay library.
@@ -22,10 +21,10 @@
  */
 #define LED_GREEN   PB5 // AVR pin where green LED is connected
 
-#define DOT_DELAY   200 // Delay in milliseconds
+#define DOT_DELAY   200 // Delay in milliseconds, PARIS
 #define DASH_DELAY  600
+#define INTER_DELAY 300
 #define WORD_DELAY  1400
-#define INTER_DELAY 200
 #ifndef F_CPU           // Preprocessor directive allows for conditional
                         // compilation. The #ifndef means "if not defined".
 # define F_CPU 16000000 // CPU frequency in Hz required for delay
@@ -45,13 +44,8 @@
  **********************************************************************/
 
 /**********************************************************************
- * Function: dash function for displaying dash in Morse code on LED
- * Returns:  none
- **********************************************************************/
-
-/**********************************************************************
  * Function: Main function where the program execution begins
- * Purpose:  Display on LED in Morse code "DE2"
+ * Purpose:  Display on LED in Morse code "A"
  * Returns:  none
  **********************************************************************/
 int main(void)
@@ -67,17 +61,16 @@ int main(void)
     // Infinite loop
     while (1)
     {
+        PORTB = PORTB ^ (1<<LED_GREEN);
+        _delay_ms(DOT_DELAY);
+        PORTB = PORTB  & ~ (1<<LED_GREEN);
+        _delay_ms(INTER_DELAY);
        
-		PORTB = PORTB ^ (1<<LED_GREEN);
-		_delay_ms(DOT_DELAY);
-		PORTB = PORTB ^ (1<<LED_GREEN);
-		_delay_ms(INTER_DELAY);
-        
-		 PORTB = PORTB ^ (1<<LED_GREEN);
-		 _delay_ms(DASH_DELAY);
-		 PORTB = PORTB ^ (1<<LED_GREEN);
-		 _delay_ms(INTER_DELAY);
-
+	    PORTB = PORTB ^ (1<<LED_GREEN);
+	    _delay_ms(DASH_DELAY);
+	    PORTB = PORTB  & ~ (1<<LED_GREEN);
+	    _delay_ms(INTER_DELAY);
+	   
         _delay_ms(WORD_DELAY);
     }
 

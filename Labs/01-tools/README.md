@@ -38,17 +38,16 @@ int main(void)
     // Infinite loop
     while (1)
     {
+        PORTB = PORTB ^ (1<<LED_GREEN);
+        _delay_ms(DOT_DELAY);
+        PORTB = PORTB  & ~ (1<<LED_GREEN);
+        _delay_ms(INTER_DELAY);
        
-		PORTB = PORTB ^ (1<<LED_GREEN);
-		_delay_ms(DOT_DELAY);
-		PORTB = PORTB ^ (1<<LED_GREEN);
-		_delay_ms(INTER_DELAY);
-        
-		 PORTB = PORTB ^ (1<<LED_GREEN);
-		 _delay_ms(DASH_DELAY);
-		 PORTB = PORTB ^ (1<<LED_GREEN);
-		 _delay_ms(INTER_DELAY);
-
+	    PORTB = PORTB ^ (1<<LED_GREEN);
+	    _delay_ms(DASH_DELAY);
+	    PORTB = PORTB  & ~ (1<<LED_GREEN);
+	    _delay_ms(INTER_DELAY);
+	   
         _delay_ms(WORD_DELAY);
     }
 
