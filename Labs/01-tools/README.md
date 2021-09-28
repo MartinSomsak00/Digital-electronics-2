@@ -1,4 +1,4 @@
-# Lab 1
+# Lab 1: Martin Šomšák
 Link to [Digital-electronics-2] (https://github.com/MartinSomsak00/Digital-electronics-2) GitHub repository:
 Link to [Assignment](https://github.com/MartinSomsak00/Digital-electronics-2/blob/main/Labs/01-tools/README.md)
 ### Blink example
