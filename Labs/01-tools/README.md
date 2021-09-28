@@ -20,7 +20,7 @@ Link to [Assignment](https://github.com/MartinSomsak00/Digital-electronics-2/blo
 | 1 | 0 | 1 | 0 | 1 | 1 |
 | 1 | 1 | 1 | 1 | 0 | 0 |
 
-### Morse code
+## Morse code
 
 ### 1. Listing of C code with syntax highlighting which repeats one "dot" and one "comma" on a LED:
 
