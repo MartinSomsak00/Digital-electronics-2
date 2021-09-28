@@ -21,7 +21,7 @@
  */
 #define LED_GREEN   PB5 // AVR pin where green LED is connected
 
-#define DOT_DELAY   200 // Delay in milliseconds, PARIS
+#define DOT_DELAY   200 // Delay in milliseconds
 #define DASH_DELAY  600
 #define INTER_DELAY 300
 #define WORD_DELAY  1400
