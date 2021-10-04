@@ -23,31 +23,41 @@ Link to [Assignment](https://github.com/MartinSomsak00/Digital-electronics-2/blo
 | 1 | 0 | output | no | Output low (sink) |
 | 1 | 1 | output | no| Output high (source) |
 
-| **Port** | **Pin** | **Input/output usage?** |
-| :-: | :-: | :-- |
-| A | x | Microcontroller ATmega328P does not contain port A |
-| B | 0 | Yes (Arduino pin D8) |
-|   | 1 | Yes (Arduino pin D9) |
-|   | 2 | Yes (Arduino pin D10) |
-|   | 3 | Yes (Arduino pin D11) |
-|   | 4 | Yes (Arduino pin D12) |
-|   | 5 | Yes (Arduino pin D13) |
-|   | 6 | No |
-|   | 7 | No |
-| C | 0 | Yes (Arduino pin A0/D14) |
-|   | 1 | Yes (Arduino pin A1/D15) |
-|   | 2 | Yes (Arduino pin A2/D16) |
-|   | 3 | Yes (Arduino pin A3/D17) |
-|   | 4 | Yes (Arduino pin A4/D18 |
-|   | 5 | Yes (Arduino pin A5/D19) |
-|   | 6 | Yes (Arduino pin RST) |
-|   | 7 | No |
-| D | 0 | Yes (Arduino pin RX D0) |
-|   | 1 | Yes (Arduino pin TX D1) |
-|   | 2 | Yes (Arduino pin D2) |
-|   | 3 | Yes (Arduino pin D3) |
-|   | 4 | Yes (Arduino pin D4) |
-|   | 5 | Yes (Arduino pin D5) |
-|   | 6 | Yes (Arduino pin D6) |
-|   | 7 | Yes (Arduino pin D7) |
+2. Part of the C code listing with syntax highlighting, which blinks alternately with a pair of LEDs; let one LED is connected to port B and the other to port C:
 
+```c
+int main(void)
+{
+	// Green LED at port B
+	// Set pin as output in Data Direction Register...
+	DDRB = DDRB | (1<<LED_GREEN);
+	// ...and turn LED off in Data Register
+	PORTB = PORTB & ~(1<<LED_GREEN);
+
+	// GREEN LED n. 2 at port C
+	DDRC = DDRC | (1<<LED_GREEN2);
+	
+	PORTC = PORTC | (1<<LED_GREEN2);
+
+	//push button on port D
+	DDRD = DDRD & ~(1<<PUSH_BTN);
+	
+	PORTD = PORTD | (1<<PUSH_BTN);
+
+	// Infinite loop
+	while (1)
+	{
+		// Pause several milliseconds
+		_delay_ms(BLINK_DELAY);
+	
+		if(bit_is_clear(PIND, 7))
+		{
+			PORTB = PORTB ^ (1<<LED_GREEN);
+			PORTC = PORTC ^ (1<<LED_GREEN2);
+		}
+	}
+
+    // Will never reach this
+    return 0;
+}
+```

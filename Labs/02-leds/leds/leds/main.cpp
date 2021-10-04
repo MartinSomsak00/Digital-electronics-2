@@ -29,7 +29,7 @@
  * Purpose:  Toggle two LEDs when a push button is pressed.
  * Returns:  none
  **********************************************************************/
-int main(void)
+
 int main(void)
 {
 	// Green LED at port B
