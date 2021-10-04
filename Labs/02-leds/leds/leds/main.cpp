@@ -14,6 +14,7 @@
 #define BLINK_DELAY 500
 #define LED_GREEN2  PC0
 #define PUSH_BTN    PD7
+
 #ifndef F_CPU
 # define F_CPU 16000000     // CPU frequency in Hz required for delay
 #endif
@@ -29,43 +30,36 @@
  * Returns:  none
  **********************************************************************/
 int main(void)
+int main(void)
 {
-    // Green LED at port B
-    // Set pin as output in Data Direction Register...
-    DDRB = DDRB | (1<<LED_GREEN);
-    // ...and turn LED off in Data Register
-    PORTB = PORTB & ~(1<<LED_GREEN);
+	// Green LED at port B
+	// Set pin as output in Data Direction Register...
+	DDRB = DDRB | (1<<LED_GREEN);
+	// ...and turn LED off in Data Register
+	PORTB = PORTB & ~(1<<LED_GREEN);
 
-    // Configure the second LED at port C
-    DDRC = DDRC | (1<<LED_GREEN2);
-    // 
-    PORTC = PORTC & ~(1<<LED_GREEN2);
-    
+	// GREEN LED n. 2 at port C
+	DDRC = DDRC | (1<<LED_GREEN2);
+	
+	PORTC = PORTC | (1<<LED_GREEN2);
 
-    // Configure Push button at port D and enable internal pull-up resistor
-    DDRD = DDRD & ~ (0<<PUSH_BTN);
+	//push button on port D
+	DDRD = DDRD & ~(1<<PUSH_BTN);
+	
+	PORTD = PORTD | (1<<PUSH_BTN);
 
-    PORTD = PORTD | (1<<PUSH_BTN);
-
-    // Infinite loop
-    while (1)
-    {
-        // Pause several milliseconds
-        _delay_ms(BLINK_DELAY);
-
-        // WRITE YOUR CODE HERE
-        if(bit_is_clear(PIND, PD7))
-        {
-       PORTB = PORTB ^ (1<<LED_GREEN);
-       PORTC = PORTC ^ (1<<LED_GREEN2);
-       loop_until_bit_is_clear(PIND, PUSH_BTN)
-       _delay_ms(BLINK_DELAY);
-    
-    
-        PORTC = PORTC & ~(1<<LED_GREEN2);
-    }
-        
-    }
+	// Infinite loop
+	while (1)
+	{
+		// Pause several milliseconds
+		_delay_ms(BLINK_DELAY);
+	
+		if(bit_is_clear(PIND, 7))
+		{
+			PORTB = PORTB ^ (1<<LED_GREEN);
+			PORTC = PORTC ^ (1<<LED_GREEN2);
+		}
+	}
 
     // Will never reach this
     return 0;
