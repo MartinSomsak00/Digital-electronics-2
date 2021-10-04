@@ -86,3 +86,4 @@ int main(void)
 ```
 
 ### Knight Rider :
+![Knight Rider](pictures/1.PNG) 
