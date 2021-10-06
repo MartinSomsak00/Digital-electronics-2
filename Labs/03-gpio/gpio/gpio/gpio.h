@@ -33,6 +33,7 @@
 
 /* Includes ----------------------------------------------------------*/
 #include <avr/io.h>
+#include <avr/sfr_defs.h>
 
 
 /* Function prototypes -----------------------------------------------*/
@@ -50,6 +51,7 @@ void GPIO_config_output(volatile uint8_t *reg_name, uint8_t pin_num);
 
 
 /* GPIO_config_input_nopull */
+
 void GPIO_config_input_nopull(volatile uint8_t *reg_name, uint8_t pin_num);
 
 /**
@@ -71,9 +73,11 @@ void GPIO_write_low(volatile uint8_t *reg_name, uint8_t pin_num);
 
 
 /* GPIO_write_high */
+
 void GPIO_write_high(volatile uint8_t *reg_name, uint8_t pin_num);
 
 /* GPIO_toggle */
+
 void GPIO_toggle(volatile uint8_t *reg_name, uint8_t pin_num);
 
 /**
