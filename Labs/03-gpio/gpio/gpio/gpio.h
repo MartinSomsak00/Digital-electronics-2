@@ -1,5 +1,5 @@
 #ifndef GPIO_H
-# define GPIO_H
+#define GPIO_H
 
 /***********************************************************************
  * 
@@ -33,7 +33,6 @@
 
 /* Includes ----------------------------------------------------------*/
 #include <avr/io.h>
-#include <avr/sfr_defs.h>
 
 
 /* Function prototypes -----------------------------------------------*/
@@ -52,6 +51,12 @@ void GPIO_config_output(volatile uint8_t *reg_name, uint8_t pin_num);
 
 /* GPIO_config_input_nopull */
 
+/**
+ * @brief  Configure one input pin and disable pull-up.
+ * @param  reg_name Address of Data Direction Register, such as &DDRB
+ * @param  pin_num  Pin designation in the interval 0 to 7
+ * @return none
+ */
 void GPIO_config_input_nopull(volatile uint8_t *reg_name, uint8_t pin_num);
 
 /**
@@ -74,10 +79,22 @@ void GPIO_write_low(volatile uint8_t *reg_name, uint8_t pin_num);
 
 /* GPIO_write_high */
 
+/**
+ * @brief  Write one pin to a low value.
+ * @param  reg_name Address of Port Register, such as &PORTB
+ * @param  pin_num  Pin designation in the interval 0 to 7
+ * @return none
+ */
 void GPIO_write_high(volatile uint8_t *reg_name, uint8_t pin_num);
 
 /* GPIO_toggle */
 
+/**
+ * @brief  Toggle one output pin value in PORT register
+ * @param  reg_name Address of Port Register, such as &PORTB
+ * @param  pin_num  Pin designation in the interval 0 to 7
+ * @return none
+ */
 void GPIO_toggle(volatile uint8_t *reg_name, uint8_t pin_num);
 
 /**
