@@ -1,4 +1,4 @@
-# Lab 1: Martin Šomšák
+# Lab 3: Martin Šomšák
 Link to GitHub repository: [Digital-electronics-2](https://github.com/MartinSomsak00/Digital-electronics-2)
 
 Link to [Assignment](https://github.com/MartinSomsak00/Digital-electronics-2/blob/main/Labs/03-gpio/README.md)
