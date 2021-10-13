@@ -27,12 +27,16 @@ void GPIO_config_output(volatile uint8_t *reg_name, uint8_t pin_num)
 
 /**********************************************************************
  * Function: GPIO_config_input_nopull()
+ * Purpose:  Configure one input pin and disable pull-up.
+ * Input:    reg_name - Address of Data Direction Register, such as &DDRB
+ *           pin_num - Pin designation in the interval 0 to 7
+ * Returns:  none
  **********************************************************************/
 void GPIO_config_input_nopull(volatile uint8_t *reg_name, uint8_t pin_num)
 {
-    *reg_name = *reg_name & ~ (1<<pin_num);  // Data Direction Register
+    *reg_name = *reg_name & ~(1<<pin_num);  // Data Direction Register
     reg_name++;                     // Change pointer to Data Register
-    *reg_name = *reg_name & ~ (1<<pin_num);   // Data Register   
+    *reg_name = *reg_name & ~(1<<pin_num);   // Data Register
 }
 
 /**********************************************************************
@@ -63,29 +67,36 @@ void GPIO_write_low(volatile uint8_t *reg_name, uint8_t pin_num)
 
 /**********************************************************************
  * Function: GPIO_write_high()
+ * Purpose:  Write one pin to a high value.
+ * Input:    reg_name - Address of Port Register, such as &PORTB
+ *           pin_num - Pin designation in the interval 0 to 7
+ * Returns:  none
  **********************************************************************/
 void GPIO_write_high(volatile uint8_t *reg_name, uint8_t pin_num)
 {
-    *reg_name = *reg_name | (1<<pin_num);// set output to high
+    *reg_name = *reg_name | (1<<pin_num);
 }
+
 /**********************************************************************
  * Function: GPIO_toggle()
+ * Purpose:  Toggle one output pin value in PORT register.
+ * Input:    reg_name - Address of Port Register, such as &PORTB
+ *           pin_num - Pin designation in the interval 0 to 7
+ * Returns:  none
  **********************************************************************/
 void GPIO_toggle(volatile uint8_t *reg_name, uint8_t pin_num)
 {
-    *reg_name = *reg_name ^ (1<<pin_num);// set output to high
+    *reg_name = *reg_name ^ (1<<pin_num);
 }
 
 /**********************************************************************
  * Function: GPIO_read()
+ * Purpose:  Get input pin value from PIN register.
+ * Input:    reg_name - Address of Port Register, such as &PORTB
+ *           pin_num - Pin designation in the interval 0 to 7
+ * Returns:  uint8_t
  **********************************************************************/
 uint8_t GPIO_read(volatile uint8_t *reg_name, uint8_t pin_num)
 {
-    if(bit_is_set(*reg_name, pin_num))
-    
-    
-    return 1;
-    else
-    return 0;
-    
+    return (*reg_name & (1<<pin_num));
 }
