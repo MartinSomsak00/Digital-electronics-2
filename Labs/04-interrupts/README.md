@@ -23,7 +23,7 @@ https://github.com/MartinSomsak00/Digital-electronics-2/blob/main/Labs/04-interr
    * Function
         * Program calls function.
    * Interrupt service routine
-        * CPU calls Interrupt service routine. Running program is paused when the interrupt occurs. When the Interrupt service routine is done,the program continues where it stopped.
+        * CPU calls Interrupt service routine. Running program is paused when the interrupt occurs. When the Interrupt service routine is done, the program continues where it stopped.
 
 2. Part of the header file listing with syntax highlighting, which defines settings for Timer/Counter0:
 
