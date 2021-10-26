@@ -15,9 +15,6 @@
 #include "timer.h"          // Timer library for AVR-GCC
 #include "segment.h"        // Seven-segment display library for AVR-GCC
 
-volatile uint8_t cnt0 = 0;
-volatile uint8_t cnt1 = 0;
-
 /* Function definitions ----------------------------------------------*/
 /**********************************************************************
  * Function: Main function where the program execution begins
@@ -30,21 +27,18 @@ int main(void)
     // Configure SSD signals
     SEG_init();
 
-    // Test of SSD: display number '4' at position 0
-    SEG_update_shift_regs(4, 0);
-    
-    
+    // Test of SSD: display number '3' at position 0
+    //SEG_update_shift_regs(1,0);
 
     // Configure 16-bit Timer/Counter1 for Decimal counter
     // Set the overflow prescaler to 262 ms and enable interrupt
     TIM1_overflow_262ms();
+    TIM0_overflow_4ms();
     TIM1_overflow_interrupt_enable();
-    
-     TIM0_overflow_4ms();
-     TIM0_overflow_interrupt_enable();
+    TIM0_overflow_interrupt_enable();
 
     // Enables interrupts by setting the global interrupt mask
-    sei();   
+    sei();
 
     // Infinite loop
     while (1)
@@ -62,19 +56,30 @@ int main(void)
  * Function: Timer/Counter1 overflow interrupt
  * Purpose:  Increment decimal counter value and display it on SSD.
  **********************************************************************/
+uint8_t x = 0, y = 0;
+
 ISR(TIMER1_OVF_vect)
 {
-    // WRITE YOUR CODE HERE
-   
-    cnt0++;
-     if(cnt0 > 15)
-    cnt0 = 0;
-    SEG_update_shift_regs(cnt0, 0);
+    x++;
+    if (x == 10){
+        x = 0;
+        y++;
+        if (y == 6){
+            y = 0;
+        }
+    }
 }
 ISR(TIMER0_OVF_vect)
 {
-    // WRITE YOUR CODE HERE
-    
-    
+    static uint8_t pos = 0;
+    if (pos == 0){
+        SEG_update_shift_regs(x,0);
+    }
+    else if (pos == 1){
+        SEG_update_shift_regs(y,1);
+    }
+    pos++;
+    if (pos > 1) {
+        pos = 0;
+    }
 }
-
