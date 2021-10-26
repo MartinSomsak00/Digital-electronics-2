@@ -17,7 +17,6 @@ https://github.com/MartinSomsak00/Digital-electronics-2/blob/main/Labs/05-segmen
    
    ```c
    uint8_t x = 0, y = 0;
-
 ISR(TIMER1_OVF_vect)
 {
     x++;
