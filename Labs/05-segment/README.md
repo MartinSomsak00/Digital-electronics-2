@@ -15,8 +15,9 @@ https://github.com/MartinSomsak00/Digital-electronics-2/blob/main/Labs/05-segmen
    
 2. Code listing with syntax highlighting of two interrupt service routines (`TIMER0_OVF_vect`, `TIMER0_OVF_vect`) from counter application with at least two digits, ie. values from 00 to 59:
    
-   ```c
-   uint8_t x = 0, y = 0;
+  ```c
+uint8_t x = 0, y = 0;
+
 ISR(TIMER1_OVF_vect)
 {
     x++;
@@ -42,7 +43,7 @@ ISR(TIMER0_OVF_vect)
         pos = 0;
     }
 }
-   ```
+```
    
    3. Flowchart figure for function `SEG_clk_2us()` which generates one clock period on `SEG_CLK` pin with a duration of 2&nbsp;us. The image can be drawn on a computer or by hand. Use clear descriptions of the individual steps of the algorithms.
    
