@@ -112,8 +112,8 @@ ISR(TIMER2_OVF_vect)
     static uint8_t tens = 0;        // Tenths of a second
     static uint8_t secs = 0;        // Seconds
     char lcd_string[2] = "  ";      // String for converting numbers by itoa()
-    int16_t sec_sqr;
-    char lcd_string_sqr[4];
+    static int16_t sec_sqr ;
+    char lcd_string_sqr[4]= "  ";
 
     number_of_overflows++;
     if (number_of_overflows >= 6)
@@ -126,15 +126,15 @@ ISR(TIMER2_OVF_vect)
         if (tens>=10){
             tens=0;
             /*a = a*2;*/
+           
             secs++;
+            if (secs>=60)  {
+                secs=0;
+            
             sec_sqr = secs * secs;
             itoa(sec_sqr, lcd_string_sqr, 10);
             lcd_gotoxy(11,0);
             lcd_puts(lcd_string_sqr);
-            
-            if (secs>=60)  {
-                secs=0;
-           
             
                  
             }
