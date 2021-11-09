@@ -6,3 +6,4 @@
 ### [Assignment 4](Labs/04-interrupts/README.md)
 ### [Assignment 5](Labs/05-segment/README.md)
 ### [Assignment 6](Labs/06-lcd/README.md)
+### [Assignment 7](Labs/07-uart/README.md)
