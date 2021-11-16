@@ -88,4 +88,14 @@ https://github.com/MartinSomsak00/Digital-electronics-2/blob/main/Labs/08-i2c/RE
  2. (Hand-drawn) picture of I2C signals when reading checksum (only 1 byte) from DHT12 sensor. Indicate which specific moments control the data line master and which slave.
 
   ![](pictures/2.PNG)
+  
+  ### Meteo station
+
+Consider an application for temperature and humidity measurement and display. Use combine sensor DHT12, real time clock DS3231, LCD, and one LED. Application display time in hours:minutes:seconds at LCD, measures both temperature and humidity values once per minut, display both values on LCD, and when the temperature is too high, the LED starts blinking.
+
+1. FSM state diagram picture of meteo station. The image can be drawn on a computer or by hand. Concise name of individual states and describe the transitions between them.
+
+  ![](pictures/3.PNG)
+  
+  
    
