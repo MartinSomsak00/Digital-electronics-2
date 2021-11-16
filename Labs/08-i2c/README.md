@@ -23,7 +23,7 @@ https://github.com/MartinSomsak00/Digital-electronics-2/blob/main/Labs/08-i2c/RE
 
 1. Code listing of Timer1 overflow interrupt service routine for scanning I2C devices and rendering a clear table on the UART. Always use syntax highlighting and meaningful comments:
 
-   ```c
+```c
    ISR(TIMER1_OVF_vect)
 {
     static state_t state = STATE_IDLE;  // Current state of the FSM
@@ -83,8 +83,7 @@ https://github.com/MartinSomsak00/Digital-electronics-2/blob/main/Labs/08-i2c/RE
         break;
     }
 }
-
-   ```
+```
    
  2. (Hand-drawn) picture of I2C signals when reading checksum (only 1 byte) from DHT12 sensor. Indicate which specific moments control the data line master and which slave.
 
