@@ -7,3 +7,4 @@
 ### [Assignment 5](Labs/05-segment/README.md)
 ### [Assignment 6](Labs/06-lcd/README.md)
 ### [Assignment 7](Labs/07-uart/README.md)
+### [Assignment 8](Labs/08-i2c/README.md)
