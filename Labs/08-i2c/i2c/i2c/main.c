@@ -6,7 +6,7 @@
  * ATmega328P (Arduino Uno), 16 MHz, AVR 8-bit Toolchain 3.6.2
  *
  * Copyright (c) 2017-Present Tomas Fryza
- * Dept. of Radio Electronics, Brno University of Technology, Czechoslovakia
+ * Dept. of Radio Electronics, Brno University of Technology, Czechia
  * This work is licensed under the terms of the MIT license.
  * 
  **********************************************************************/
@@ -25,18 +25,29 @@
 #include "twi.h"            // TWI library for AVR-GCC
 
 /* Variables ---------------------------------------------------------*/
-typedef enum {              // FSM declaration
+typedef enum {              // FSM scanner declaration
     STATE_IDLE = 1,
     STATE_SEND,
-    STATE_ACK
+    STATE_ACK,
 } state_t;
+
+typedef enum {              // FSM temp hum declaration
+    SENSOR_IDLE = 1,
+    SENSOR_READ_H0,
+    SENSOR_READ_H1,
+    SENSOR_READ_T0,
+    SENSOR_READ_T1,
+} sensor_state_t;
+
+void i2c_scanner(void);
+void read_and_send_tmp_hum(void);
 
 /* Function definitions ----------------------------------------------*/
 /**********************************************************************
  * Function: Main function where the program execution begins
  * Purpose:  Use Timer/Counter1 and send I2C (TWI) address every 33 ms.
  *           Send information about scanning process to UART.
- * Returns:  none 
+ * Returns:  none
  **********************************************************************/
 int main(void)
 {
@@ -48,7 +59,7 @@ int main(void)
 
     // Configure 16-bit Timer/Counter1 to update FSM
     // Set prescaler to 33 ms and enable interrupt
-    TIM1_overflow_33ms();
+    TIM1_overflow_262ms();
     TIM1_overflow_interrupt_enable();
 
     // Enables interrupts by setting the global interrupt mask
@@ -75,25 +86,24 @@ int main(void)
  *           between 8 and 119.
  **********************************************************************/
 ISR(TIMER1_OVF_vect)
-{ 
+{
     static state_t state = STATE_IDLE;  // Current state of the FSM
     static uint8_t addr = 7;            // I2C slave address
     uint8_t result = 1;                 // ACK result from the bus
-   
-    char uart_string[2] = "00"; // String for converting numbers by itoa()
-    
+    char uart_string[2] = "00";         // String for converting numbers by itoa()
 
     // FSM
     switch (state)
     {
     // Increment I2C slave address
     case STATE_IDLE:
-        addr++;
         // If slave address is between 8 and 119 then move to SEND state
-        if (addr < 120) state=STATE_SEND ;
-            else addr = 7;
-        
-        
+        addr++;  
+        if (addr >= 8 && addr <= 119) {
+            state = STATE_SEND;
+        } else if (addr == 0) {
+            uart_puts("\n\r\n\r");
+        }       
         break;
     
     // Transmit I2C slave address and get result
@@ -107,21 +117,25 @@ ISR(TIMER1_OVF_vect)
         // +------------------------+------------+
         result = twi_start((addr<<1) + TWI_WRITE);
         twi_stop();
+           
         /* Test result from I2C bus. If it is 0 then move to ACK state, 
          * otherwise move to IDLE */
-        if(result == 0) state=STATE_ACK;
-        else  state= STATE_IDLE;
+        if (result) {
+            state = STATE_IDLE;
+        } else {
+            state = STATE_ACK;
+        }            
+        
         break;
 
     // A module connected to the bus was found
     case STATE_ACK:
         // Send info about active I2C slave to UART and move to IDLE
-    uart_puts("Addr:"); 
-    itoa(addr, uart_string, 16);
-    uart_puts(uart_string); 
-    uart_puts("\r\n");
-    
-    state=STATE_IDLE ;
+        itoa(addr, uart_string, 10);
+        uart_puts(uart_string);
+        uart_puts("\n\r");
+        
+        state = STATE_IDLE;
         break;
 
     // If something unexpected happens then move to IDLE
@@ -130,4 +144,3 @@ ISR(TIMER1_OVF_vect)
         break;
     }
 }
-
