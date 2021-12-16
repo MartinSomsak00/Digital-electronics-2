@@ -66,6 +66,14 @@ Byly použity knihovny:
 
 Schema zapojení: 
 
+Původní (složitější) flowchart zahrnující error při poškození pumpy (error se odstraní potvrzením )
+
+![](pictures/7.PNG)
+
+Flowchart podle kterého probíhalo programovaní
+
+![](pictures/8.PNG)
+
 ![](pictures/5.png)
 
 návrh FSM: 
