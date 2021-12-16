@@ -38,7 +38,7 @@ Ultrazvukový modul HC-SR04 pracuje na principu systému SONAR a RADAR. Má ultr
 Byla použita deska *Arduino Uno* s čipem [ATmega328P](https://www.microchip.com/en-us/product/ATmega328p)
 ![](pictures/2.PNG)
 
-Kměření vlhkosti jsme použili [I2C teploměr a vlhkoměr DHT12 digitální](https://dratek.cz/martin/1977-i2c-teplomer-a-vlhkomer-dht12-digitalni.html)
+K měření vlhkosti jsme použili [I2C teploměr a vlhkoměr DHT12 digitální](https://dratek.cz/martin/1977-i2c-teplomer-a-vlhkomer-dht12-digitalni.html)
 
 ![](pictures/3.PNG)
 
@@ -89,9 +89,9 @@ návrh FSM:
 
 ## References
 
-https://www.electronicwings.com/avr-atmega/ultrasonic-module-hc-sr04-interfacing-with-atmega1632
+[1] https://www.electronicwings.com/avr-atmega/ultrasonic-module-hc-sr04-interfacing-with-atmega1632
 
-https://github.com/tomas-fryza/Digital-electronics-2/blob/master/Docs/arduino_shield.pdf
+[2] https://github.com/tomas-fryza/Digital-electronics-2/blob/master/Docs/arduino_shield.pdf
 
 
 
