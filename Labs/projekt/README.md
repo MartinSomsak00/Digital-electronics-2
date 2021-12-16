@@ -66,7 +66,7 @@ Byly použity knihovny:
 
 Schema zapojení: 
 
-![](pictures/5.PNG)
+![](pictures/5.png)
 
 návrh FSM: 
 
