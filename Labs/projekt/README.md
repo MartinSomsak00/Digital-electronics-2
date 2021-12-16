@@ -64,7 +64,14 @@ Byly použity knihovny:
 
 ## Main application
 
-Write your text here.
+Schema zapojení: 
+
+![](pictures/5.PNG)
+
+návrh FSM: 
+
+![](pictures/6.PNG)
+
 
 <a name="video"></a>
 
