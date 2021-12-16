@@ -9,7 +9,7 @@
 
 Link to this file in your GitHub repository:
 
-[https://github.com/your-github-account/repository-name/project](https://github.com/...)
+https://github.com/xrajmj00/Digital-electronics-2/tree/main/Labs/Project
 
 ### Table of contents
 
@@ -89,5 +89,13 @@ návrh FSM:
 
 ## References
 
-1. Write your text here.
+https://www.electronicwings.com/avr-atmega/ultrasonic-module-hc-sr04-interfacing-with-atmega1632
+
+https://github.com/tomas-fryza/Digital-electronics-2/blob/master/Docs/arduino_shield.pdf
+
+
+
+
+
+
    
