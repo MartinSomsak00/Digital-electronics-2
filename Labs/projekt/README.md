@@ -72,7 +72,7 @@ Flowchart podle kterého probíhalo programovaní:
 
 ![](pictures/8.PNG)
 
-Původní (složitější) flowchart zahrnující error při poškození pumpy (error se odstraní potvrzením):
+Složitější flowchart, jak by mohl vypadat při rozšíření.
 
 ![](pictures/7.PNG)
 
