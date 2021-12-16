@@ -50,7 +50,7 @@ Pro spínání motoru/pumpy (v našem případě LED diod) bylo použito [2-kan�
 
 ## Libraries description
 
-Byli použity knihovny:
+Byly použity knihovny:
 
 *gpio.h*
 
