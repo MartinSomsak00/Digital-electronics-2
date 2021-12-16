@@ -30,9 +30,9 @@ Cílem bylo sestrojit chytrou vodní pumpu, která bude schopná udržovat výš
 
 ## Hardware description
 
-K měření hladiny vody byl použit ultrazvukový měřič vzdálenosti: [Ultrasonic HC-SR04 Module] (https://www.electronicwings.com/avr-atmega/ultrasonic-module-hc-sr04-interfacing-with-atmega1632)
+K měření hladiny vody byl použit ultrazvukový měřič vzdálenosti: [Ultrasonic HC-SR04 Module](https://www.electronicwings.com/avr-atmega/ultrasonic-module-hc-sr04-interfacing-with-atmega1632)
 Ultrazvukový modul HC-SR04 pracuje na principu systému SONAR a RADAR. Má ultrazvukový vysílač, přijímač a řídicí obvod. 4 piny, *Vcc, Gnd, Trig a Echo*. Přivedením pulsu na Trig (10us) vygeneruje 8 pulsu s frekvencí 40kHz a Echo pin se přepne do vysoké úrovně a zůstane tak dokud nedostane signál zpět. Podle času jak dlouho byl pin Echo v úrovni High se pak lehce spočítá pomocí rychlosti zvuku ve vzduchu vzdálenost objektu, v našem případě vodní hladiny.
-Byla použita deska *Arduino Uno* s čipem [ATmega328P] (https://www.microchip.com/en-us/product/ATmega328p)
+Byla použita deska *Arduino Uno* s čipem [ATmega328P](https://www.microchip.com/en-us/product/ATmega328p)
 
 
 <a name="libs"></a>
@@ -51,7 +51,7 @@ Write your text here.
 
 ## Video
 
- [Video] (https://www.youtube.com/watch?v=KrOki5VO4F4)
+ [Video](https://www.youtube.com/watch?v=KrOki5VO4F4)
  https://www.youtube.com/watch?v=KrOki5VO4F4
 
 Write your text here
