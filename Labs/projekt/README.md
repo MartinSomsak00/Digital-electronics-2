@@ -39,6 +39,7 @@ Byla použita deska *Arduino Uno* s čipem [ATmega328P](https://www.microchip.co
 ![](pictures/2.PNG)
 
 Kměření vlhkosti jsme použili [I2C teploměr a vlhkoměr DHT12 digitální](https://dratek.cz/martin/1977-i2c-teplomer-a-vlhkomer-dht12-digitalni.html)
+
 ![](pictures/3.PNG)
 
 Pro spínání motoru/pumpy (v našem případě LED diod) bylo použito [2-kanálové relé modul 5VDC 250VAC 10A](https://dratek.cz/arduino/834-arduino-rele-2-kanaly.html)
