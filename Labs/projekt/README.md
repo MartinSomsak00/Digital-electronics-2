@@ -68,13 +68,14 @@ Schema zapojení:
 
 ![](pictures/5.png)
 
+Flowchart podle kterého probíhalo programovaní:
+
+![](pictures/8.PNG)
+
 Původní (složitější) flowchart zahrnující error při poškození pumpy (error se odstraní potvrzením):
 
 ![](pictures/7.PNG)
 
-Flowchart podle kterého probíhalo programovaní:
-
-![](pictures/8.PNG)
 
 návrh FSM: 
 
